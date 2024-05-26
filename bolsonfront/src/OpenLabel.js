@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData }) => {
+const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData, token }) => {
   const [dataEditBolsitas, setDataEditBolsitas] = useState([]);
   const [selladas, setSelladas] = useState(0);
 
@@ -9,6 +9,7 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+         "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify({ bolsitaid: bolsitaid })
     })
@@ -30,6 +31,7 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify({ bolsitaid: bolsitaid, nuevoValor: selladas, tipoACambiar: tipoBolsita, total: (parseInt(selladas) + parseInt(dataEditBolsitas[0].Sin_Sellar)) })
     })

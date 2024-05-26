@@ -79,7 +79,7 @@ function App() {
                 <div className={`bolsitas bolsitas${bolsitas.Grosor}total content${bolsitas.Grosor} total`}>{parseInt(bolsitas.Selladas) + parseInt(bolsitas.Sin_Sellar)}</div>
               </React.Fragment>
             ))}
-            {showLabelEdit ? <OpenLabel setShowLabelEdit={setShowLabelEdit} bolsitaid={bolsitaid} tipoBolsita={tipoBolsita} fetchData={fetchData} /> : null}
+            {showLabelEdit ? <OpenLabel setShowLabelEdit={setShowLabelEdit} bolsitaid={bolsitaid} tipoBolsita={tipoBolsita} fetchData={fetchData} token={token} /> : null}
           </div>
         </div>
       ) : (
