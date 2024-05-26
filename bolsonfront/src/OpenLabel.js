@@ -27,7 +27,7 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData }) => {
 
   const handleSave = () => {
     fetch('https://thejunger.pythonanywhere.com/api/save-bolsita', {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

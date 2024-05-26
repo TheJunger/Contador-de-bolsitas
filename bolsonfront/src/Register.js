@@ -16,9 +16,11 @@ const Register = ({ setToken, setShowRegister }) => {
 
         const data = await response.json();
         if (response.ok) {
-            setToken(data.access_token);
-        } else {
             alert(data.message);
+            setShowRegister(false)
+        }
+        else{
+            alert("Error al registrarse")
         }
     };
 
