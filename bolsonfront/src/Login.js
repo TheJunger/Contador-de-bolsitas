@@ -27,7 +27,7 @@ const Login = ({ setShowContent, setToken }) => {
 
   return (
     <>
-      {showRegister ? <Register setToken={setToken} setShowRegister={setShowRegister} /> : null}
+      {showRegister ? <Register setToken={setToken} setShowRegister={setShowRegister} /> :
       <div className='loginContainer'>
         <form className='formlogincontainer' onSubmit={handleSubmit}>
           <div className='formlogintitle'>Iniciar Sesion</div>
@@ -43,6 +43,7 @@ const Login = ({ setShowContent, setToken }) => {
           <button className='formloginbutton' type="submit">Entrar</button>
         </form>
       </div>
+      }
     </>
   );
 };

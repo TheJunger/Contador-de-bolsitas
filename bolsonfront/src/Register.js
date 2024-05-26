@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Register = ({ setToken }) => {
+const Register = ({ setToken, setShowRegister }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -34,7 +34,7 @@ const Register = ({ setToken }) => {
                     <div>Contraseña:</div>
                     <input className='formlogininput' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
-                <div className='formloginregister'>¿Iniciar sesion?</div>
+                <div onClick={() => setShowRegister(false)} className='formloginregister'>¿Iniciar sesion?</div>
                 <button className='formloginbutton' type="submit">Registrarse</button>
             </form>
         </div>
