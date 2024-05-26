@@ -15,7 +15,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://192.168.100.9:5050/api/get-bolsitas-data', {
+      const response = await fetch('https://thejunger.pythonanywhere.com/api/get-bolsitas-data', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -42,7 +42,7 @@ function App() {
   };
 
   const handleDownload = () => {
-    fetch('http://192.168.100.9:5050/api/generate-excel', {
+    fetch('https://thejunger.pythonanywhere.com/api/generate-excel', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,

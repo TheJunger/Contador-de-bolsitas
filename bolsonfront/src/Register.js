@@ -6,7 +6,7 @@ const Register = ({ setToken }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://192.168.100.9:5050/api/register', {
+        const response = await fetch('https://thejunger.pythonanywhere.com/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
