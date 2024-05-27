@@ -23,7 +23,6 @@ function App() {
       });
       const data = await response.json();
       setDataBolsitas(data);
-      console.log(data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -72,13 +71,13 @@ function App() {
             <div className='verdeOscuro lefttable cintaAnchav'>N3 / Cinta Ancha (Verde)</div>
             <div className='rojoClaro lefttable cintaAnchar'>N3 / Cinta Ancha (Roja)</div>
             <div className='huevoOscuro lefttable pappardelle'>N4 / Papardelle</div>
-            {dataBolsitas.map((bolsitas) => (
+            {dataBolsitas.length > 0 ? dataBolsitas.map((bolsitas) => (
               <React.Fragment key={bolsitas.ID}>
                 <div onClick={() => handleClick(bolsitas.ID, 'selladas')} className={`bolsitas bolsitas${bolsitas.Grosor}selladas content${bolsitas.Grosor} bolsitasselladas`}>{bolsitas.Selladas}</div>
                 <div onClick={() => handleClick(bolsitas.ID, 'Sin Sellar')} className={`bolsitas bolsitas${bolsitas.Grosor}sinsellar content${bolsitas.Grosor} bolsitassinsellar`}>{bolsitas.Sin_Sellar}</div>
                 <div className={`bolsitas bolsitas${bolsitas.Grosor}total content${bolsitas.Grosor} total`}>{parseInt(bolsitas.Selladas) + parseInt(bolsitas.Sin_Sellar)}</div>
               </React.Fragment>
-            ))}
+            )) : "Cargando"}
             {showLabelEdit ? <OpenLabel setShowLabelEdit={setShowLabelEdit} bolsitaid={bolsitaid} tipoBolsita={tipoBolsita} fetchData={fetchData} token={token} /> : null}
           </div>
         </div>

@@ -22,7 +22,6 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData, token 
       else if (data.length > 0 && tipoBolsita == 'Sin Sellar') {
         setSelladas(data[0].Sin_Sellar); // Inicializar el valor del input
       }
-      console.log(data);
     });
   }, [bolsitaid]);
 
