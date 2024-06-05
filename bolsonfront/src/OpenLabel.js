@@ -25,8 +25,9 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData, token 
     });
   }, [bolsitaid]);
 
-  const handleSave = () => {
-    fetch('https://thejunger.pythonanywhere.com/api/save-bolsita', {
+  const handleSave = async (e) => {
+    e.preventDefault();
+    const response = await fetch('https://thejunger.pythonanywhere.com/api/save-bolsita', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,10 +35,20 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData, token 
       },
       body: JSON.stringify({ bolsitaid: bolsitaid, nuevoValor: selladas, tipoACambiar: tipoBolsita, total: (parseInt(selladas) + parseInt(dataEditBolsitas[0].Sin_Sellar)) })
     })
-    .then(() => {
-      setShowLabelEdit(false);
-      fetchData();  // Llamar a fetchData para actualizar los datos en App
-    });
+
+    const data = await response.text()
+    if (response.ok){
+      setShowLabelEdit(false)
+      fetchData();
+    }
+    else{
+      alert('Ha sucedido un problema durante el guardado')
+    }
+
+    //.then(() => {
+    //  setShowLabelEdit(false);
+    //  fetchData();  // Llamar a fetchData para actualizar los datos en App
+    //});
   };
 
   const handleChange = (e) => {
@@ -49,7 +60,7 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData, token 
   };
 
   return (
-    <div className="labelcont">
+    <form className="labelcont" onSubmit={handleSave}>
       <div className="fondodifuminado"></div>
       <div className="labelgetbolsitacontainer">
         {dataEditBolsitas.length > 0 ? (
@@ -86,10 +97,10 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData, token 
         </div>
         <div className="buttonssavelabel">
           <div className="cancelbutonlabel" onClick={handleCancel}>Cancelar</div>
-          <div onClick={handleSave}>Guardar</div>
+          <button type="submit">Guardar</button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
