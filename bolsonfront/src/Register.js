@@ -5,23 +5,24 @@ const Register = ({ setToken, setShowRegister }) => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await fetch('https://thejunger.pythonanywhere.com/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            alert(data.message);
-            setShowRegister(false)
-        }
-        else{
-            alert("Error al registrarse")
-        }
+        alert("No se aceptan mas registros de momento")
+    //    e.preventDefault();
+    //    const response = await fetch('https://thejunger.pythonanywhere.com/api/register', {
+    //        method: 'POST',
+    //        headers: {
+    //            'Content-Type': 'application/json',
+    //        },
+    //        body: JSON.stringify({ username, password }),
+    //    });
+    //
+    //    const data = await response.json();
+    //    if (response.ok) {
+    //        alert(data.message);
+    //        setShowRegister(false)
+    //    }
+    //    else{
+    //        alert("Error al registrarse")
+    //    }
     };
 
     return (

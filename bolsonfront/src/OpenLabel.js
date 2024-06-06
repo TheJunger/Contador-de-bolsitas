@@ -96,8 +96,8 @@ const OpenLabel = ({ setShowLabelEdit, bolsitaid, tipoBolsita, fetchData, token 
           <div onClick={() => setSelladas(selladas + 1200)}>+1200</div>
         </div>
         <div className="buttonssavelabel">
-          <div className="cancelbutonlabel" onClick={handleCancel}>Cancelar</div>
-          <button type="submit">Guardar</button>
+          <button className="cancelbutonlabel" onClick={handleCancel}>Cancelar</button>
+          <button className="savebuttonlabel" type="submit">Guardar</button>
         </div>
       </div>
     </form>
